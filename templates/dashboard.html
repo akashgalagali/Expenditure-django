@@ -10,8 +10,10 @@
 
 </head>
 <body>
+<h3 name="uid" style="text-align:center;color:#28a745;margin-top:2%;">Welcome {{user.username}}</h3>
     <div class="container" style="margin-top:5%;">
         <div style="display: flex;justify-content: space-between; margin-bottom: 5px;">
+        
             <div style="margin-left: 5px;">
             <h4>Total Expenditure:{{total}}
             
@@ -22,13 +24,15 @@
 
     <table class="table table-striped">
         <thead>
-          <tr>
             <th scope="col">#</th>
+            <th></th>
             <th scope="col">Date</th>
+            <th></th>
             <th scope="col">Particular</th>
+            <th></th>
             <th scope="col">Amount</th>
+            <th></th>
             <th scope="col">Mode of payment</th>
-          </tr>
         </thead>
         <tbody>
         {% for j in datalist %}
@@ -40,10 +44,10 @@
         <td>{{j.mode_of_payment}}<td>
         </tr>
         {% endfor %}
-				   
         </tbody>
       </table>
       </div> 
+      
       <div style="margin-right: 5px;text-align:center;"><a href="../logout"><button type="submit" class="btn btn-dark">Logout</button></a> </div>
    
     </div>

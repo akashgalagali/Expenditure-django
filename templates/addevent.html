@@ -11,7 +11,7 @@
 <body>
     
 
-    <div class="col d-flex justify-content-center" style="margin-top: 10%;">
+    <div class="col d-flex justify-content-center" style="margin-top:5%">
         
         <div class="card" style="width: 18rem;">
         <h4 style="text-align:center;color:#28a745;margin-top:2%;">Add new Expenditure</h4>    
@@ -19,10 +19,13 @@
 
 <form action="addnewevent" method="POST" name="addevent">
 {% csrf_token %}
+<div class="form-group">
+        {% comment %} <label >User Id</label> {% endcomment %}
+        <input type="hidden" class="form-control"  value="{{user.id}}" name="uid" readonly aria-describedby="emailHelp" >
+        </div>
     <div class="form-group">
         <label >Date</label>
         <input type="date" class="form-control"  name="date1" aria-describedby="emailHelp" >
-       
       </div>
   <div class="form-group">
     <label >Particular</label>
@@ -40,6 +43,7 @@
         <option value="Cash">Cash</option>
              </select>
   </div>
+
   <button type="submit" class="btn btn-success">Add</button>
   <a type="button" class="btn btn-primary" href="dashboard">Back</a>
 </form>
