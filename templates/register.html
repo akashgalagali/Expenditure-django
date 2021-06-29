@@ -12,6 +12,9 @@
     <div  class="col d-flex justify-content-center" style="margin-top: 10%;">
         
         <div class="card" style="width: 18rem;">
+        {% for message in messages %}
+            <h5 style="text-align:center;color:red">{{message}}</h5>
+        {% endfor %}
             <h4 style="text-align:center;color:#28a745;margin-top:2%;">Register</h4>  
             <div class="card-body">
 

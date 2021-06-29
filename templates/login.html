@@ -9,7 +9,11 @@
 </head>
 <body>
 <div class="col d-flex justify-content-center" style="margin-top: 10%;">
+
 <form form action="" method ="POST" style="border: 1px solid #000 !important;padding:10px;border-radius: .25rem;">
+{% for message in messages %}
+<h5 style="text-align:center;color:red">{{message}}</h5>
+{% endfor %}
 <h4 style="text-align:center;color:#28a745;margin-top:2%;">Login</h4>  
   {% csrf_token %}
 <div class="form-group" >

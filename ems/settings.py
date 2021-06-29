@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'exp.apps.ExpConfig',
+    'money_owe.apps.MoneyOweConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

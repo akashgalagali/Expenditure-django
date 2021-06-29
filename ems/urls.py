@@ -21,4 +21,5 @@ urlpatterns = [
     path('dashboard/',include('exp.urls')),
     path('admin/', admin.site.urls),
     path('',include('accounts.urls')),
+    path('oweDashboard/',include('money_owe.urls')),
 ]

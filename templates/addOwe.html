@@ -1,0 +1,69 @@
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenditure||Debt </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="rs.png" />
+</head>
+
+<body>
+
+
+    <div class="col d-flex justify-content-center" style="margin-top:5%">
+
+        <div class="card" style="width: 18rem;">
+            <h3 style="text-align:center;color:#28a745;margin-top:2%;">Add new Debt</h3>
+            <div class="card-body">
+
+                <form action="oweNewMoney" method="POST" name="oweNewMoney">
+                    {% csrf_token %}
+            <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" class="form-control" name="date1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label>Select your Role in tranaction</label>
+                <select name="role" class="form-control">
+                    <option value="lender">Lender</option>
+                    <option value="borrower">Borrower</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Select the other Person </label>
+                <select name="person" class="form-control">
+                    {% for i in users%}
+                    <option value="{{i.id}}">{{i.username}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" class="form-control" name="amount" id="amount" placeholder="amount">
+            </div>
+            <div class="form-group">
+                <label>Mode of Payment</label>
+                <select class="form-control" name="mode" id="mode">
+                    <option value="PhonePe">PhonePe</option>
+                    <option value="Cash">Cash</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Add</button>
+            <a type="button" class="btn btn-primary" href="oweDashboard">Back</a>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/">
+
+{% endif %}

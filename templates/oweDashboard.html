@@ -1,0 +1,64 @@
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard||OWE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="rs.png" />
+
+</head>
+<body>
+<h3 name="uid" style="text-align:center;color:#28a745;margin-top:2%;">Welcome {{user.username}}</h3>
+    <div class="container" style="margin-top:5%;">
+        <h5>Total Expenditure:{{total}}</h5>
+        <div style="display: flex;justify-content: space-between; margin-bottom: 5px;">
+        
+        <div style="margin-left: 5px;">
+            <div style="margin-right: 5px;"><a href="../dashboard/dashboard"><button type="submit" class="btn btn-success">Dashboard</button></a> </div>
+        </div>
+            <div style="margin-right: 5px;"><a href="oweMoney"><button type="submit" class="btn btn-success">Add</button></a> </div>
+        </div>
+      <div class="table-responsive">
+
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">#</th>
+            
+            <th scope="col">Date</th>
+            
+            <th scope="col">Lender</th>
+            
+            <th scope="col">Borrower</th>
+            
+            <th scope="col">Amount</th>
+            
+            <th scope="col">Mode of payment</th>
+            <th></th>
+        </thead>
+        <tbody>
+        {% for j in datalist %}
+        <tr>
+        <td>{{j.id}}</td>
+        <td>{{j.date}}</td>
+        <td>{{j.lender}}</td>
+        <td>{{j.borrower}}</td>
+        <td>{{j.amount}}</td>
+        <td>{{j.mode_of_payment}}</td>
+        <td><a href="oweDelete/{{j.id}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div> 
+      
+      <div style="margin-right: 5px;text-align:center;"><a href="../logout"><button type="submit" class="btn btn-dark">Logout</button></a> </div>
+   
+    </div>
+</body>
+</html>
+{% else %}
+    <meta http-equiv="REFRESH" content="0;url=/">
+
+{% endif %}

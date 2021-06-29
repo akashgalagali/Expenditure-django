@@ -10,8 +10,8 @@ def register(request):
         fname=request.POST['name']
         email=request.POST['email']
         password=request.POST['password']
-        if(User.objects.filter(email=email).exists()):
-            messages.info(request,'email exists ')
+        if(User.objects.filter(username=fname).exists()):
+            messages.info(request,'User Name Already Taken!')
             return redirect('register')
         else:
             user=User.objects.create_user(password=password,first_name=fname,email=email,username=fname)

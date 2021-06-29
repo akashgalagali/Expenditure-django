@@ -1,0 +1,7 @@
+'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'expenditure',
+        'USER':'postgres',
+        'PASSWORD':'akash',
+        'HOST':'localhost'
+    }

@@ -28,3 +28,8 @@ def addnewevent(request):
         return redirect('dashboard')
     else:
         return redirect('dashboard')
+
+def delete(request, id):
+   exp = Expenditure.objects.get(pk = id)
+   exp.delete()
+   return redirect('dashboard')
